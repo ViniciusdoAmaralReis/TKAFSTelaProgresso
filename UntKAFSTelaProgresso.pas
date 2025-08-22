@@ -170,6 +170,13 @@ begin
   if Assigned(AniIndicador) then
     AniIndicador.Stop;
 
+  FreeAndNil(LabCancelar);
+  FreeAndNil(LabDescricao2);
+  FreeAndNil(RecProgresso);
+  FreeAndNil(LabDescricao1);
+  FreeAndNil(AniIndicador);
+  FreeAndNil(CirIndicador);
+
   inherited Destroy;
 end;
 
