@@ -65,7 +65,7 @@ begin
   begin
     Align := TAlignLayout.Contents;
     Font.Family := 'Roboto';
-    Font.Size := 48;
+    Font.Size := 36;
     Font.Style := [TFontStyle.fsBold];
     Parent := Self;
     StyledSettings := [];
@@ -90,7 +90,7 @@ begin
   begin
     Align := TAlignLayout.Contents;
     Font.Family := 'Segoe UI Emoji';
-    Font.Size := 20;
+    Font.Size := 24;
     Margins.Top := 150;
     Parent := Self;
     StyledSettings := [];
@@ -104,7 +104,7 @@ begin
     Cursor := crHandPoint;
     HitTest := True;
     Font.Family := 'Segoe UI Emoji';
-    Font.Size := 15;
+    Font.Size := 18;
     Margins.Bottom := 200;
     Margins.Top := -(Height + Margins.Bottom);
     Parent := Self;
