@@ -160,22 +160,11 @@ begin
 
     // Torna visível e traz o componente para frente
     Visible := True;
-    BringToFront;
   end);
 end;
 
 destructor TKAFSTelaProgresso.Destroy;
 begin
-  // Parar a animação antes de destruir se ainda existir
-  if Assigned(AniIndicador) then
-    AniIndicador.Stop;
-
-  FreeAndNil(LabCancelar);
-  FreeAndNil(LabDescricao2);
-  FreeAndNil(RecProgresso);
-  FreeAndNil(LabDescricao1);
-  FreeAndNil(AniIndicador);
-  FreeAndNil(CirIndicador);
 
   inherited Destroy;
 end;
