@@ -8,12 +8,12 @@ uses
 
 type
   TKAFSTelaProgresso = class(TRectangle)
-    CirIndicador: TCircle;
-    AniIndicador: TFloatAnimation;
-    LabDescricao1: TLabel;
-    RecProgresso: TRectangle;
-    LabDescricao2: TLabel;
-    LabCancelar: TLabel;
+    cirIndicador: TCircle;
+    aniIndicador: TFloatAnimation;
+    labDescricao1: TLabel;
+    rectProgresso: TRectangle;
+    labDescricao2: TLabel;
+    labCancelar: TLabel;
 
     constructor Create(AOwner: TComponent); reintroduce;
     procedure Progresso(const _cortema1, _cortema2: TAlphaColor; const _descricao: String; const _parcial, _total: Integer; const _cancelar: TNotifyEvent);
@@ -31,8 +31,8 @@ begin
   Stroke.Kind := TBrushKind.None;
   Visible := False;
 
-  CirIndicador := TCircle.Create(Self);
-  with CirIndicador do
+  cirIndicador := TCircle.Create(Self);
+  with cirIndicador do
   begin
     Align := TAlignLayout.Center;
     Fill.Kind := TBrushKind.None;
@@ -46,8 +46,8 @@ begin
     Width := 100;
   end;
 
-  AniIndicador := TFloatAnimation.Create(Self);
-  with AniIndicador do
+  aniIndicador := TFloatAnimation.Create(Self);
+  with aniIndicador do
   begin
     Duration := 2;
     Enabled := True;
@@ -60,8 +60,8 @@ begin
     TThread.Queue(nil, procedure begin Start; end);
   end;
 
-  LabDescricao1 := TLabel.Create(Self);
-  with LabDescricao1 do
+  labDescricao1 := TLabel.Create(Self);
+  with labDescricao1 do
   begin
     Align := TAlignLayout.Contents;
     Font.Family := 'Roboto';
@@ -72,8 +72,8 @@ begin
     TextSettings.HorzAlign := TTextAlign.Center;
   end;
 
-  RecProgresso := TRectangle.Create(Self);
-  with RecProgresso do
+  rectProgresso := TRectangle.Create(Self);
+  with rectProgresso do
   begin
     Align := TAlignLayout.Center;
     Height := 5;
@@ -85,8 +85,8 @@ begin
     YRadius := Height / 2;
   end;
 
-  LabDescricao2 := TLabel.Create(Self);
-  with LabDescricao2 do
+  labDescricao2 := TLabel.Create(Self);
+  with labDescricao2 do
   begin
     Align := TAlignLayout.Contents;
     Font.Family := 'Segoe UI Emoji';
@@ -97,8 +97,8 @@ begin
     TextSettings.HorzAlign := TTextAlign.Center;
   end;
 
-  LabCancelar := TLabel.Create(Self);
-  with LabCancelar do
+  labCancelar := TLabel.Create(Self);
+  with labCancelar do
   begin
     Align := TAlignLayout.MostBottom;
     Cursor := crHandPoint;
@@ -125,24 +125,24 @@ begin
     Fill.Color := _cortema1;
 
     // Cor do indicador
-    CirIndicador.Stroke.Color := _cortema2;
+    cirIndicador.Stroke.Color := _cortema2;
 
     // Texto e cor da descrição 1
-    with LabDescricao1 do
+    with labDescricao1 do
     begin
       Text := _descricao;
       TextSettings.FontColor := _cortema2;
     end;
 
     // Cor e cáculo de tamanho da barra de progresso
-    with RecProgresso do
+    with rectProgresso do
     begin
       Fill.Color := _cortema2;
       Width := ((_total - _parcial) / _total) * Width;
     end;
 
     // Texto e cor da descrição 2
-    with LabDescricao2 do
+    with labDescricao2 do
     begin
       Text := IntToStr(_parcial)+' de '+IntToStr(_total);
       TextSettings.FontColor := _cortema2;
@@ -150,7 +150,7 @@ begin
 
     // Se existe um evento de cancelamento, configura texto e cor
     if Assigned(_cancelar) then
-      with LabCancelar do
+      with labCancelar do
       begin
         Text := 'Cancelar';
         TextSettings.FontColor := _cortema2;
