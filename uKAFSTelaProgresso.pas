@@ -36,14 +36,14 @@ begin
   begin
     Align := TAlignLayout.Center;
     Fill.Kind := TBrushKind.None;
-    Height := 100;
-    Margins.Bottom := 200;
+    Height := 50;
+    Margins.Bottom := 100;
     Parent := Self;
     Stroke.Cap := TStrokeCap.Round;
     Stroke.Dash := TStrokeDash.Dash;
     Stroke.Kind := TBrushKind.Solid;
-    Stroke.Thickness := 20;
-    Width := 100;
+    Stroke.Thickness := 10;
+    Width := 50;
   end;
 
   aniIndicador := TFloatAnimation.Create(Self);
@@ -65,7 +65,7 @@ begin
   begin
     Align := TAlignLayout.Contents;
     Font.Family := 'Roboto';
-    Font.Size := 36;
+    Font.Size := 28;
     Font.Style := [TFontStyle.fsBold];
     Parent := Self;
     StyledSettings := [];
@@ -77,7 +77,7 @@ begin
   begin
     Align := TAlignLayout.Center;
     Height := 5;
-    Margins.Top := 100;
+    Margins.Top := 50;
     Parent := Self;
     Stroke.Kind := TBrushKind.None;
     Width := Self.Width / 5;
@@ -90,8 +90,8 @@ begin
   begin
     Align := TAlignLayout.Contents;
     Font.Family := 'Segoe UI Emoji';
-    Font.Size := 24;
-    Margins.Top := 150;
+    Font.Size := 20;
+    Margins.Top := 100;
     Parent := Self;
     StyledSettings := [];
     TextSettings.HorzAlign := TTextAlign.Center;
@@ -104,8 +104,8 @@ begin
     Cursor := crHandPoint;
     HitTest := True;
     Font.Family := 'Segoe UI Emoji';
-    Font.Size := 18;
-    Margins.Bottom := 200;
+    Font.Size := 14;
+    Margins.Bottom := 100;
     Margins.Top := -(Height + Margins.Bottom);
     Parent := Self;
     StyledSettings := [];
